@@ -1,0 +1,212 @@
+<div>
+    <div class="container">
+        
+            <div class="col-12">
+                <h3 class="display-4">Place your appoinment</h3>
+                <hr>
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                   
+                    <div class="form-group row px-1">
+                        <h3 class="col-sm-2 col-form-label">Name</h3>
+                        <div class="col-sm-5">
+                            <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                            <p>First Name</p>
+                            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                <p *ngIf="f.firstName.errors.required">First Name is required</p>
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <input type="text" formControlName="lastName" class="form-control"  >
+                                <p>Last Name</p>
+                                <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                    <p *ngIf="f.lastName.errors.required">First Name is required</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="h5">Shipping Address</p>
+                    <div class="form-group">
+                            <input type="text" formControlName="streetaddress" class="form-control">
+                            <p>Street address</p>
+                    </div>
+                    <br>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <input type="text" formControlName="city" class="form-control">
+                                <p>City</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" formControlName="state" class="form-control">
+                                <p>State</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <input type="text" formControlName="country" id="country" class="form-control"/>
+                                <p>Country</p>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="text" formControlName="pincode" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.pincode.errors }" />
+                                <p>Pincode</p>
+                                <div *ngIf="submitted && f.pincode.errors" class="invalid-feedback">
+                                    <div *ngIf="f.pincode.errors.required">Pincode is required</div>
+                                    <div *ngIf="f.pincode.errors.minlength">Pincode must be 6 characters</div>
+                                    <div *ngIf="f.pincode.errors.maxlength">Pincode must be 6 characters</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group row">
+                            <h3 for="bname" class="col-sm-3 col-form-label">Buyers Name</h3>
+                            <div class="col-sm-5">
+                              <input type="text" class="form-control" formControlName="bname" id="bname" required>
+                              <p>First Name</p>
+                            </div>
+                            <div class="col-sm-4">
+                              <input type="text" class="form-control" formControlName="bname" id="bname" required>
+                              <p>Last Name</p>
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label for="mob" class="col-sm-4 col-form-label h5">Mobile</label>
+                            <div class="col-sm-0">
+                                <h4>+91</h4>
+                              </div>
+                            <div class="col-sm-6">
+                                <input type="number" formControlName="phone" class="form-control" >
+                            </div>
+                          </div>
+                          <!-- <div class="form-group" >
+                            <label>Phone number</label>
+                            <input type="number" formControlName="phone" class="form-control" >
+                        </div> -->
+
+                    
+
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                                <label class="h6">Email</label>
+                                <input type="text" formControlName="email" class="form-control"  >
+                            </div>
+                            <div class="col-sm-6">
+                            
+                                <label class="h6">Age</label>
+                                <input [min]=18 [max]=60 type="number" formControlName="age" class="form-control" >
+                            </div>
+                            
+                            </div>
+                    
+                                    
+<div>
+
+<label for="trainpref" class="font-weight-bold">Trainer Preference</label>
+    <div class="form-group row mx-1">
+    <div class="form-check mr-5">
+        <input class="form-check-input" type="radio" name="trainerpreference" formControlName="trainerpreference" id="maletrain" value="Male" checked>
+        <label class="form-check-label" for="maletrain">
+            Male Trainer
+        </label>
+        </div>
+        <div class="form-check mr-5">
+        <input class="form-check-input" type="radio" name="trainerpreference" formControlName="trainerpreference" id="femtrain" value="Female">
+        <label class="form-check-label" for="femtrain">
+            Female Trainer
+        </label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="radio" name="trainerpreference" formControlName="trainerpreference" id="notrain" value="No preference">
+        <label class="form-check-label" for="notrain">
+            No Preference
+        </label>
+        </div>
+    </div> 
+
+
+    <label for="therapist" class="font-weight-bold">Do you need therapist?</label>
+    <div class="form-group row mx-1">
+      <div class="form-check mr-5">
+          <input class="form-check-input" type="radio" name="physiotherapist" formControlName="physiotherapist" id="thera1" value="Yes" checked>
+          <label class="form-check-label" for="thera1">
+           Yes
+          </label>
+        </div>
+        <div class="form-check mr-5">
+          <input class="form-check-input" type="radio" name="physiotherapist" formControlName="physiotherapist" id="thera2" value="No">
+          <label class="form-check-label" for="thera2">
+            No
+          </label>
+        </div>
+        
+    </div>
+    <label for="package" class="font-weight-bold">Select a package</label>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" formControlName="packages" name="packages" id="500" value="500" (change)="changePackage($event)">
+      <label class="form-check-label" for="500">
+        One time Access only (rs 500 only)
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" formControlName="packages" name="packages" id="1600" value="1600" (change)="changePackage($event)">
+      <label class="form-check-label" for="1600">
+        4 Sessions per week (rs 400 per session)
+      </label>
+    </div>
+    <div class="form-check ">
+      <input class="form-check-input" type="radio" formControlName="packages" name="packages" id="1500" value="1500" (change)="changePackage($event)">
+      <label class="form-check-label" for="1500">
+          5 Sessions per week (rs 300 per session)
+      </label>
+    </div>
+    <div class="form-check row mx-0">
+        <input class="form-check-input" type="radio" formControlName="packages" name="packages" id="package4" value="" (change)="changePackage($event)">
+      <label class="form-check-label" for="package4">
+          Others
+      </label> 
+      <div class="col-sm-6" >
+          <input type="number" formControlName="packages" name="packages" class="form-control" checked>
+          <p>(Quote will be shared on phone call)</p>
+      </div>
+      
+    </div>
+</div>
+<br>
+<div class="form-group row px-1">
+    <label for="amount" class="col-sm-2 col-form-label font-weight-bold">Amount(Rs)</label>
+        <div class="col-sm-10">
+            <div class="row">
+                <div class="col-sm-3">
+                    <input type="number" class="form-control" formControlName="Ramount" id="Ramount" name="Ramount" value=0>
+                </div>
+                <div class="col-sm-3">
+                    <input type="number" class="form-control" id="Pamount" value=0>
+                </div>
+                <div class="col-sm-3">
+                    <p>Paisa</p>
+                </div>
+            </div>
+            <div class="col-sm-10">
+                (Amount Will be automatically calculated)
+            </div>
+        </div>
+</div>
+                    <br><br>
+                    <div class="form-group text-center">
+                        <button type="submit"  class="btn btn-primary font-weight-bold">Submit application...</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+

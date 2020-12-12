@@ -1,0 +1,65 @@
+ <br>
+ 
+ <div class="" style="display:flex;float: right;">
+   <input type="text" class="form-control" [(ngModel)]="serachText" placeholder="Search by Trainer Perference Male or Female">
+   <button type="button" class="btn btn-info ml-3 mr-3" (click)="getfitness()">Submit</button>
+   <button type="button" class="btn btn-warning" (click)="clearText()">Clear</button>
+ </div>
+<br>
+<br>
+ <table class="table table-bordered">
+    <thead class="black white-text">
+      <tr>
+          <th>Sr No.</th>
+       <th>First Name</th>
+       <th>Last name</th>
+       <th>City</th>
+       <th>Package</th>
+       <th>Trainer Preference</th>
+       <th>Phone</th>
+
+      </tr>
+    </thead>
+    <tbody
+    *ngIf = "serachText == ''">
+      <tr mdbTableCol *ngFor="let el of users; let i = index">
+          <td>{{i+1}}</td>
+        <td>{{el.firstName}}</td>
+        <td>{{el.lastName}}</td>
+        <td>{{el.city}}</td>
+        <td>{{el.packages}}</td>
+        <td>{{el.trainerpreference}}</td>
+        <td>{{el.phone}}</td>
+      </tr>
+    </tbody>
+
+    <tbody
+    *ngIf = "serachText != ''">
+      <tr mdbTableCol *ngFor="let el of users; let i = index">
+          <td *ngIf="el.trainerpreference == serachText">{{i+1}}</td>
+        <td *ngIf="el.trainerpreference == serachText">{{el.firstName}}</td>
+        <td *ngIf="el.trainerpreference == serachText">{{el.lastName}}</td>
+        <td *ngIf="el.trainerpreference == serachText">{{el.city}}</td>
+        <td *ngIf="el.trainerpreference == serachText">{{el.packages}}</td>
+        <td *ngIf="el.trainerpreference == serachText">{{el.trainerpreference}}</td>
+        <td *ngIf="el.trainerpreference == serachText">{{el.phone}}</td>
+      </tr>
+    </tbody>
+
+
+    
+</table> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

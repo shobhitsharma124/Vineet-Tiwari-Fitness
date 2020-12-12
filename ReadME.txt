@@ -1,0 +1,1 @@
+Open CMD in C:\Users\xoriantcs19\Desktop\Vineet Tiwari-Fitness Tracker and run "ng serve"
